@@ -25,7 +25,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
     }
   } else {
-    // No webhook secret configured — refuse rather than trust an unsigned body.
+    // No webhook secret configured. Refuse rather than trust an unsigned body.
     return NextResponse.json({ error: "Webhook not configured" }, { status: 400 });
   }
 

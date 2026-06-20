@@ -18,7 +18,7 @@ export function centsToDollars(cents: number): number {
   return Math.round(cents) / 100;
 }
 
-/** Percentage of goal reached, clamped to 0–100 and rounded to a whole number. */
+/** Percentage of goal reached, clamped to 0 to 100 and rounded to a whole number. */
 export function fundedPercent(raisedCents: number, goalCents: number): number {
   if (goalCents <= 0) return 0;
   return Math.min(100, Math.max(0, Math.round((raisedCents / goalCents) * 100)));

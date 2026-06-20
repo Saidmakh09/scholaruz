@@ -69,7 +69,7 @@ async function main() {
       goalCents: 400000,
       status: "APPROVED",
       story:
-        "I'm a second-year Computer Science student passionate about building software that helps my community. I'm the first in my family to attend university. A scholarship would let me cover tuition and buy a laptop so I can keep learning to code and contribute to open-source projects.",
+        "I'm a second year Computer Science student passionate about building software that helps my community. I'm the first in my family to attend university. A scholarship would let me cover tuition and buy a laptop so I can keep learning to code and contribute to open source projects.",
     },
     {
       key: "bekzod",
@@ -82,20 +82,20 @@ async function main() {
       goalCents: 350000,
       status: "APPROVED",
       story:
-        "I study electrical engineering and work part-time to support my younger siblings. Funding would help me pay for lab fees and final-year project components so I can graduate on time and start working as an engineer.",
+        "I study electrical engineering and work part time to support my younger siblings. Funding would help me pay for lab fees and final year project components so I can graduate on time and start working as an engineer.",
     },
     {
       key: "nilufar",
       email: "nilufar@example.com",
       fullName: "Nilufar Abdullayeva",
       school: "Samarkand State University",
-      fieldOfStudy: "Medicine (Pre-med)",
+      fieldOfStudy: "Medicine (Premedical)",
       yearOfStudy: "1st year",
       city: "Samarkand",
       goalCents: 500000,
       status: "APPROVED",
       story:
-        "My dream is to become a doctor and serve rural communities that lack access to healthcare. Medical studies are long and expensive — your support would cover my first-year tuition and textbooks.",
+        "My dream is to become a doctor and serve rural communities that lack access to healthcare. Medical studies are long and expensive, your support would cover my first year tuition and textbooks.",
     },
     {
       key: "jasur",
@@ -108,7 +108,7 @@ async function main() {
       goalCents: 600000,
       status: "APPROVED",
       story:
-        "I'm studying economics with a focus on development. I want to help build financial tools for small businesses in Uzbekistan. A scholarship would ease the burden of international-program tuition on my family.",
+        "I'm studying economics with a focus on development. I want to help build financial tools for small businesses in Uzbekistan. A scholarship would ease the burden of international program tuition on my family.",
     },
     {
       key: "dilnoza",
@@ -194,7 +194,7 @@ async function main() {
     daysAgo: number;
     message?: string;
   }[] = [
-    { donor: "aziz", student: "madina", cents: 120000, status: "SUCCEEDED", daysAgo: 42, message: "Keep coding — you've got this!" },
+    { donor: "aziz", student: "madina", cents: 120000, status: "SUCCEEDED", daysAgo: 42, message: "Keep coding, you've got this!" },
     { donor: "timur", student: "madina", cents: 50000, status: "SUCCEEDED", daysAgo: 20 },
     { donor: "sevara", student: "bekzod", cents: 80000, status: "SUCCEEDED", daysAgo: 35 },
     { donor: "gulnora", student: "bekzod", cents: 70000, status: "SUCCEEDED", daysAgo: 12 },
@@ -231,9 +231,9 @@ async function main() {
     note: string;
     daysAgo: number;
   }[] = [
-    { student: "dilnoza", cents: 250000, status: "CONFIRMED", reference: "BSU-INV-2291", note: "Final-year tuition", daysAgo: 45 },
-    { student: "nilufar", cents: 200000, status: "SENT", reference: "SAMU-INV-1043", note: "First-year tuition", daysAgo: 6 },
-    { student: "madina", cents: 100000, status: "CONFIRMED", reference: "NUU-INV-7781", note: "Tuition installment", daysAgo: 14 },
+    { student: "dilnoza", cents: 250000, status: "CONFIRMED", reference: "BSU INV 2291", note: "Final year tuition", daysAgo: 45 },
+    { student: "nilufar", cents: 200000, status: "SENT", reference: "SAMU INV 1043", note: "First year tuition", daysAgo: 6 },
+    { student: "madina", cents: 100000, status: "CONFIRMED", reference: "NUU INV 7781", note: "Tuition installment", daysAgo: 14 },
   ];
   for (const d of disbursementDefs) {
     await prisma.disbursement.create({

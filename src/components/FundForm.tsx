@@ -94,7 +94,7 @@ export function FundForm({
       <h3 className="font-semibold text-ink">Make a contribution</h3>
       {fullyFunded && (
         <p className="mt-2 rounded-lg bg-accent-50 px-3 py-2 text-sm text-accent-800">
-          This student has reached their goal — extra contributions still help cover
+          This student has reached their goal. Extra contributions still help cover
           ongoing costs.
         </p>
       )}

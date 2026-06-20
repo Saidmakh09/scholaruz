@@ -60,7 +60,7 @@ export default async function AdminOverviewPage() {
       </div>
 
       {/* Per-student ledger */}
-      <h2 className="mt-10 text-xl font-bold text-ink">Per-student ledger</h2>
+      <h2 className="mt-10 text-xl font-bold text-ink">Per student ledger</h2>
       <div className="mt-4 overflow-x-auto rounded-2xl border border-slate-200 bg-white scroll-thin">
         <table className="w-full min-w-[640px] text-sm">
           <thead className="bg-slate-50 text-left text-xs uppercase tracking-wide text-muted">
@@ -96,7 +96,7 @@ export default async function AdminOverviewPage() {
                   </td>
                   <td className="px-4 py-3">
                     {l.overDisbursed ? (
-                      <Badge tone="red">Over-disbursed</Badge>
+                      <Badge tone="red">Overdisbursed</Badge>
                     ) : l.raisedCents >= l.goalCents ? (
                       <Badge tone="blue">Goal met</Badge>
                     ) : (

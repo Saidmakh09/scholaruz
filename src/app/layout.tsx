@@ -5,16 +5,16 @@ import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "ScholarUz — Fund a student's education",
+    default: "ScholarUz: Fund a Student's Future",
     template: "%s · ScholarUz",
   },
   description:
-    "ScholarUz is a nonprofit platform connecting donors with students who lack access to educational funding. Transparent, reconciled funding from pledge to disbursement.",
+    "ScholarUz is a nonprofit scholarship platform connecting donors with university students in Uzbekistan who need support. Every contribution is tracked transparently, from pledge to disbursement.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"),
   openGraph: {
-    title: "ScholarUz — Fund a student's education",
+    title: "ScholarUz: Fund a Student's Future",
     description:
-      "Connect with students who lack access to educational funding. Every contribution tracked from pledge to disbursement.",
+      "A nonprofit scholarship platform connecting donors with university students in Uzbekistan. Transparent funding, tracked from pledge to disbursement.",
     type: "website",
   },
 };

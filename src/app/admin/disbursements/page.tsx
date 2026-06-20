@@ -72,7 +72,7 @@ export default async function AdminDisbursementsPage() {
                       {formatCents(d.amountCents)}
                     </td>
                     <td className="px-4 py-3 text-muted">
-                      {d.reference || <span className="text-slate-300">—</span>}
+                      {d.reference || <span className="text-slate-300">none</span>}
                       {d.note && <span className="block text-xs text-slate-400">{d.note}</span>}
                     </td>
                     <td className="px-4 py-3">

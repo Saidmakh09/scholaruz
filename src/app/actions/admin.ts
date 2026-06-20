@@ -84,7 +84,7 @@ export async function createDisbursementAction(
           .filter((c) => c.status === "SUCCEEDED")
           .reduce((acc, c) => acc + c.amountCents, 0);
         // SCHEDULED funds are reserved/encumbered, so they count against the
-        // held balance too — otherwise scheduling repeatedly would over-commit.
+        // held balance too, otherwise scheduling repeatedly would overcommit.
         const alreadyOut = student.disbursements
           .filter(
             (d) => d.status === "SCHEDULED" || d.status === "SENT" || d.status === "CONFIRMED",

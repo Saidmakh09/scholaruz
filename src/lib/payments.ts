@@ -4,7 +4,7 @@ import { prisma } from "./db";
 /**
  * Idempotently confirm a contribution from its Stripe Checkout session id.
  * Safe to call multiple times and from multiple sources (webhook + success
- * page) concurrently — the status transition is enforced atomically at the
+ * page) concurrently. The status transition is enforced atomically at the
  * database level (only PENDING → SUCCEEDED).
  *
  * `paidAmountCents` (Stripe's `amount_total`) is verified against the amount we
@@ -77,7 +77,7 @@ export async function markContributionRefundedByPaymentIntent(paymentIntentId: s
 
 /**
  * Keep a student's status in sync with the money they have actually raised.
- * Only ever toggles between APPROVED and FUNDED — never disturbs a profile that
+ * Only ever toggles between APPROVED and FUNDED, never disturbs a profile that
  * is PENDING_REVIEW or ARCHIVED. This means a refund that drops a student below
  * their goal correctly reverts them from FUNDED back to APPROVED.
  */

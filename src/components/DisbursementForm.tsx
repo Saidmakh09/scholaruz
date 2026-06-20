@@ -39,7 +39,7 @@ export function DisbursementForm({ students }: { students: Option[] }) {
             </option>
             {fundable.map((s) => (
               <option key={s.id} value={s.id}>
-                {s.name} — {formatCents(s.heldCents)} available
+                {s.name} ({formatCents(s.heldCents)} available)
               </option>
             ))}
           </select>

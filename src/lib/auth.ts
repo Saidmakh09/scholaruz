@@ -17,7 +17,7 @@ function getSecret(): Uint8Array {
   if (!secret || secret.length < 16) {
     // Only fall back to an insecure constant in explicit local development.
     // Any other environment (production, preview, staging, unset NODE_ENV)
-    // must provide a real AUTH_SECRET — otherwise sessions would be forgeable.
+    // must provide a real AUTH_SECRET, otherwise sessions would be forgeable.
     if (!isDev) {
       throw new Error("AUTH_SECRET is not set or is too short.");
     }

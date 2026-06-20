@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* ScholarUz brand theme — green wordmark + blue accent tile from the logo. */
+/* ScholarUz brand theme. Green wordmark with a blue accent tile from the logo. */
 @theme {
   --color-brand-50: #ecfbe7;
   --color-brand-100: #d4f5c7;
