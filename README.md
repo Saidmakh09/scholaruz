@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ScholarUz
 
-## Getting Started
+A nonprofit platform connecting donors with students who lack access to educational
+funding. ScholarUz makes giving transparent: every contribution is tracked end-to-end —
+from a donor's pledge to the moment funds reach a student's institution.
 
-First, run the development server:
+**Live site:** _(add your URL after deploying, e.g. https://scholaruz.org)_
+
+## What it does
+
+Four core workflows, plus a reconciliation-oriented admin console:
+
+| Workflow | Description |
+| --- | --- |
+| **Students** | Students apply with their school, field, funding goal, and story; an admin reviews and approves each profile. |
+| **Donors** | Donors create an account, browse approved students, and contribute any amount. |
+| **Contributions** | Payments are processed through Stripe and recorded with full status (pending → succeeded / failed / refunded). |
+| **Disbursements** | Admins disburse pooled funds to students' institutions and confirm receipt. |
+
+The **admin reconciliation console** tracks contribution status, each student's funding
+progress, and every disbursement's state — reconciling money in against money out and
+flagging anything that doesn't balance.
+
+## Tech stack
+
+- **Next.js 16** (App Router) + **React 19** + **TypeScript**
+- **Tailwind CSS v4**
+- **Prisma** ORM + **PostgreSQL**
+- Email/password auth with **bcrypt** hashing and signed **JWT** session cookies (`jose`)
+- **Stripe** Checkout for payments (+ webhook confirmation)
+- **Zod** for input validation
+
+## Local development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env        # then fill in DATABASE_URL, AUTH_SECRET, Stripe keys
+npm run db:push             # create tables
+npm run db:seed             # load demo data
+npm run dev                 # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Demo accounts (after seeding)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+All use the password `Demo!2026`:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Admin** — `admin@scholaruz.org`
+- **Donor** — `donor@scholaruz.org`
+- **Student** — `student@scholaruz.org`
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+See [DEPLOY.md](./DEPLOY.md) for step-by-step instructions to put ScholarUz live on
+Vercel with a custom domain.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Start the dev server |
+| `npm run build` | Production build (runs `prisma generate`) |
+| `npm run db:push` | Sync the Prisma schema to the database |
+| `npm run db:seed` | Load demo students, donors, and contributions |
+| `npm run db:reset` | Reset the database and re-seed |

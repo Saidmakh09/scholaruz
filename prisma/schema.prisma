@@ -1,0 +1,116 @@
+// ScholarUz data model
+// A nonprofit donor–student educational funding platform.
+// Four core workflows: donors, students, contributions, disbursements.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  // directUrl is used for migrations when DATABASE_URL points at a pooled
+  // connection (e.g. Neon/Supabase pgBouncer). Falls back to DATABASE_URL.
+  directUrl = env("DIRECT_URL")
+}
+
+enum Role {
+  DONOR
+  STUDENT
+  ADMIN
+}
+
+enum StudentStatus {
+  PENDING_REVIEW // submitted, awaiting admin approval
+  APPROVED // visible to donors, accepting contributions
+  FUNDED // reached funding goal
+  ARCHIVED // no longer active
+}
+
+enum ContributionStatus {
+  PENDING // checkout started, payment not yet confirmed
+  SUCCEEDED // payment confirmed by Stripe
+  FAILED // payment failed or expired
+  REFUNDED // contribution refunded to donor
+}
+
+enum DisbursementStatus {
+  SCHEDULED // queued by admin, funds not yet sent
+  SENT // funds wired to the student / their institution
+  CONFIRMED // receipt confirmed, fully reconciled
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  role         Role     @default(DONOR)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  studentProfile       StudentProfile?
+  contributions        Contribution[]  @relation("DonorContributions")
+  disbursementsCreated Disbursement[]  @relation("DisbursementCreatedBy")
+}
+
+model StudentProfile {
+  id              String        @id @default(cuid())
+  userId          String        @unique
+  user            User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  fullName        String
+  school          String
+  fieldOfStudy    String
+  yearOfStudy     String
+  city            String
+  country         String        @default("Uzbekistan")
+  story           String // why funding is needed
+  goalAmountCents Int
+  status          StudentStatus @default(PENDING_REVIEW)
+  imageUrl        String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  contributions Contribution[]
+  disbursements Disbursement[]
+
+  @@index([status])
+}
+
+model Contribution {
+  id                    String             @id @default(cuid())
+  donorUserId           String
+  donor                 User               @relation("DonorContributions", fields: [donorUserId], references: [id])
+  studentId             String
+  student               StudentProfile     @relation(fields: [studentId], references: [id])
+  amountCents           Int
+  status                ContributionStatus @default(PENDING)
+  message               String?
+  stripeSessionId       String?            @unique
+  stripePaymentIntentId String?
+  createdAt             DateTime           @default(now())
+  updatedAt             DateTime           @updatedAt
+
+  @@index([studentId])
+  @@index([donorUserId])
+  @@index([status])
+}
+
+model Disbursement {
+  id              String             @id @default(cuid())
+  studentId       String
+  student         StudentProfile     @relation(fields: [studentId], references: [id])
+  amountCents     Int
+  status          DisbursementStatus @default(SCHEDULED)
+  reference       String? // wire reference / institution invoice number
+  note            String?
+  createdByUserId String
+  createdBy       User               @relation("DisbursementCreatedBy", fields: [createdByUserId], references: [id])
+  scheduledAt     DateTime           @default(now())
+  sentAt          DateTime?
+  confirmedAt     DateTime?
+  createdAt       DateTime           @default(now())
+
+  @@index([studentId])
+  @@index([status])
+}
