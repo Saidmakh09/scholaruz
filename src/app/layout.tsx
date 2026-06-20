@@ -9,12 +9,12 @@ export const metadata: Metadata = {
     template: "%s · ScholarUz",
   },
   description:
-    "ScholarUz is a nonprofit scholarship platform connecting donors with university students in Uzbekistan who need support. Every contribution is tracked transparently, from pledge to disbursement.",
+    "ScholarUz is a nonprofit scholarship platform connecting donors with university students from Uzbekistan and across Central Asia, at home and abroad. Every contribution is tracked transparently, from pledge to disbursement.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"),
   openGraph: {
     title: "ScholarUz: Fund a Student's Future",
     description:
-      "A nonprofit scholarship platform connecting donors with university students in Uzbekistan. Transparent funding, tracked from pledge to disbursement.",
+      "A nonprofit scholarship platform connecting donors with university students from Uzbekistan and across Central Asia, at home and abroad. Transparent funding, tracked from pledge to disbursement.",
     type: "website",
   },
 };

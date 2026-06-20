@@ -9,8 +9,9 @@ export function Footer() {
         <div className="sm:col-span-1">
           <Logo sizeClass="text-xl" />
           <p className="mt-3 max-w-xs text-sm text-muted">
-            A nonprofit scholarship platform helping university students in Uzbekistan
-            reach their goals. Transparent funding, tracked from pledge to disbursement.
+            A nonprofit scholarship platform helping university students from Uzbekistan
+            and across Central Asia, at home and abroad, reach their goals. Transparent
+            funding, tracked from pledge to disbursement.
           </p>
         </div>
         <div>

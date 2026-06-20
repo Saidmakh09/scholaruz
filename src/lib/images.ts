@@ -30,9 +30,9 @@ export const uz = {
     credit: "Chorsu Bazaar, Tashkent",
   },
   campus: {
-    src: "/images/campus.jpg",
-    alt: "A university campus in Tashkent where students study",
-    credit: "A university campus in Tashkent",
+    src: "/images/columbia.jpg",
+    alt: "Low Memorial Library at Columbia University, where students from around the world study",
+    credit: "Columbia University, New York",
   },
 } satisfies Record<string, SiteImage>;
 

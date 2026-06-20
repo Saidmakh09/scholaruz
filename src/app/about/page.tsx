@@ -27,9 +27,9 @@ export default function AboutPage() {
               A new way to fund education
             </h1>
             <p className="mt-5 max-w-xl text-lg text-white/90">
-              We connect generous donors with university students in Uzbekistan who need
-              support, and we make every step transparent, from the first pledge to the moment
-              funds reach a student&apos;s school.
+              We connect generous donors with university students from Uzbekistan and across
+              Central Asia, at home and abroad, and we make every step transparent, from the
+              first pledge to the moment funds reach a student&apos;s school.
             </p>
           </div>
         </div>

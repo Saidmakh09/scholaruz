@@ -50,9 +50,10 @@ export default async function HomePage() {
               Fund a student&apos;s future, dollar by dollar.
             </h1>
             <p className="mt-5 max-w-xl text-lg text-white/90">
-              ScholarUz is a new way to help university students in Uzbekistan reach
-              graduation. Donors give what they can, students get the support they need,
-              and every contribution is tracked openly from pledge to disbursement.
+              ScholarUz is a new way to help university students from Uzbekistan and across
+              Central Asia reach graduation, whether they study at home or at universities
+              abroad. Donors give what they can, and every contribution is tracked openly
+              from pledge to disbursement.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <LinkButton href="/students" size="lg">
@@ -94,8 +95,9 @@ export default async function HomePage() {
             <p className="mt-4 text-slate-600">
               Too many students are held back not by ability but by access to funding.
               ScholarUz turns small contributions from many donors into real scholarships,
-              paid directly toward tuition and university costs. It is a simple, transparent
-              way for anyone, anywhere, to help a student stay in school and graduate.
+              paid directly toward tuition and university costs. We support students at home
+              in Uzbekistan and across Central Asia, as well as Central Asian students who have
+              earned a place at top universities abroad, including in the United States.
             </p>
             <ul className="mt-6 space-y-3">
               <Feature title="Give any amount">
@@ -112,6 +114,24 @@ export default async function HomePage() {
           <div className="overflow-hidden rounded-3xl shadow-md">
             <CoverImage src={uz.campus.src} alt={uz.campus.alt} className="h-80 w-full lg:h-96" />
           </div>
+        </div>
+      </section>
+
+      {/* For Central Asian students everywhere */}
+      <section className="mx-auto max-w-6xl px-4">
+        <div className="rounded-3xl border border-accent-200 bg-accent-50 p-8 sm:p-10">
+          <p className="text-sm font-semibold uppercase tracking-wide text-accent-700">
+            For Central Asian students everywhere
+          </p>
+          <h2 className="mt-2 text-2xl font-bold text-ink sm:text-3xl">
+            From Tashkent to the Ivy League
+          </h2>
+          <p className="mt-3 max-w-3xl text-slate-600">
+            ScholarUz is open to students across Central Asia, wherever they study. Whether
+            you are at a university in Uzbekistan or part of a Central Asian student club at a
+            campus in the United States, you belong here. We welcome Central Asian student
+            clubs and communities to join us and help one another reach graduation.
+          </p>
         </div>
       </section>
 

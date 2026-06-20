@@ -28,8 +28,9 @@ export default function ScholarshipPage() {
             </h1>
             <p className="mt-5 max-w-xl text-lg text-white/90">
               The ScholarUz Scholarship is funded by donors from around the world. It helps
-              university students in Uzbekistan cover tuition and study costs so that money is
-              never the reason a talented student has to stop.
+              university students from Uzbekistan and across Central Asia, at home and abroad,
+              cover tuition and study costs so that money is never the reason a talented
+              student has to stop.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <LinkButton href="/register" size="lg">
@@ -104,8 +105,8 @@ export default function ScholarshipPage() {
         </p>
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
           <EligibilityCard title="Enrolled at a university">
-            You are currently studying, or about to start, at an accredited university or
-            institute, most often in Uzbekistan.
+            You are currently studying, or about to start, at an accredited university,
+            whether in Uzbekistan, elsewhere in Central Asia, or at a university abroad.
           </EligibilityCard>
           <EligibilityCard title="In genuine financial need">
             Your studies are at risk because of the cost of tuition, housing, or materials.
