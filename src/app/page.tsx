@@ -57,8 +57,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="mx-auto -mt-10 max-w-6xl px-4">
+      {/* Stats — relative + z-10 so the card paints above the hero where they overlap */}
+      <section className="relative z-10 mx-auto -mt-10 max-w-6xl px-4">
         <div className="grid grid-cols-2 gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:grid-cols-4">
           <Stat label="Contributed" value={formatCents(totals.raisedCents)} />
           <Stat label="Students supported" value={String(totals.studentCount)} />
